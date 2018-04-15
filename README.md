@@ -44,10 +44,10 @@ yum-config-manager --enable docker-ce-edge
 
 #### Install
 ```
-yum install docker-ce
+yum install -y docker-ce
 ```
 
-### Config Docker
+#### Config Docker
 `/etc/docker/daemon.json`
 ```
 {
