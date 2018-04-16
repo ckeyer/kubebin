@@ -11,40 +11,10 @@ etcd:
   # endpoints:
   #   - http://127.0.0.1:2379
   image: quay.io/coreos/etcd:3.2
-imageRepository: registry.dpool.sina.com.cn/gcr.io
-kubeProxy:
-  config:
-    bindAddress: 0.0.0.0
-    clientConnection:
-      acceptContentTypes: ""
-      burst: 10
-      contentType: application/vnd.kubernetes.protobuf
-      kubeconfig: /var/lib/kube-proxy/kubeconfig.conf
-      qps: 5
-    clusterCIDR: ""
-    configSyncPeriod: 15m0s
-    enableProfiling: false
-    featureGates: ""
-    healthzBindAddress: 0.0.0.0:10256
-    hostnameOverride: ""
-    iptables:
-      masqueradeAll: false
-      masqueradeBit: 14
-      minSyncPeriod: 0s
-      syncPeriod: 30s
-    ipvs:
-      minSyncPeriod: 1s
-      scheduler: ""
-      syncPeriod: 30s
-    metricsBindAddress: 127.0.0.1:10249
-    mode: "iptables"
-    oomScoreAdj: -999
-    portRange: "30000-60000"
-    resourceContainer: /kube-proxy
-    udpTimeoutMilliseconds: 250ms
+# imageRepository: registry.cn-beijing.aliyuncs.com/wa
 kubeletConfiguration:
   clusterDomain: kubedev.ckeyer.com
-kubernetesVersion: v1.9.0
+# kubernetesVersion: v1.10.0
 networking:
   dnsDomain: kubedev.ckeyer.com
   podSubnet: 10.100.0.0/16
