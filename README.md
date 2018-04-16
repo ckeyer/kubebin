@@ -1,18 +1,20 @@
 # kubebin
 
+## All Resources
+
 * **version** `https://dl.k8s.io/release/stable.txt`
-* **kubeadm,kubelet,kubectl** `https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/linux/amd64/{kubeadm,kubelet,kubectl}`
-* **kubelet.service** `https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.0/build/debs/kubelet.service`
-* **10-kubeadm.conf** `https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.0/build/debs/10-kubeadm.conf`
+* **kubeadm,kubelet,kubectl** `https://storage.googleapis.com/kubernetes-release/release/v1.9.6/bin/linux/amd64/{kubeadm,kubelet,kubectl}`
+* **kubelet.service** `https://raw.githubusercontent.com/kubernetes/kubernetes/v1.9.6/build/debs/kubelet.service`
+* **10-kubeadm.conf** `https://raw.githubusercontent.com/kubernetes/kubernetes/v1.9.6/build/debs/10-kubeadm.conf`
 * **cni-plugins** `https://github.com/containernetworking/plugins/releases/download/v0.6.0/cni-plugins-amd64-v0.6.0.tgz`
 * **calico** `https://github.com/projectcalico/cni-plugin/releases/download/v2.0.3/calico`
 * **calico-ipam** `https://github.com/projectcalico/cni-plugin/releases/download/v2.0.3/calico-ipam`
 
-### Install Docker
+## Install Docker
 
 [Install Docker CE for CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
 
-#### Uninstall old versions
+### Uninstall old versions
 ```
 yum remove docker \
   docker-client \
@@ -26,7 +28,7 @@ yum remove docker \
   docker-engine-selinuxcker-engine
 ```
 
-#### Before
+### Before
 ```
 yum install -y yum-utils \
   device-mapper-persistent-data \
@@ -42,12 +44,12 @@ yum-config-manager --enable docker-ce-edge
 #yum-config-manager --disable docker-ce-edge
 ```
 
-#### Install
+### Install
 ```
 yum install -y docker-ce
 ```
 
-#### Config Docker
+### Config Docker
 `/etc/docker/daemon.json`
 ```
 {
@@ -55,7 +57,8 @@ yum install -y docker-ce
 }
 ```
 
-#### Config Kernel
+## Install Kubernetes
+### Config Kernel
 ```
 cat <<EOF >  /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
@@ -64,3 +67,28 @@ EOF
 sysctl --system
 ```
 
+### Download Kube-bins
+
+### Start kubelet
+
+### Config kubeadm
+`/etc/kubernetes/kubeadm.yaml`
+
+### Init Cluster
+`kubeadm init --config /etc/kubernetes/kubeadm.yaml`
+
+### After
+```
+cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+```
+
+### Init Networks
+#### Calico (v2.6)
+[Quickstart](https://docs.projectcalico.org/v2.6/getting-started/kubernetes/)
+
+```
+kubectl apply -f \
+  https://docs.projectcalico.org/v2.6/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
+```
+
+#### Calico (v3.1)
