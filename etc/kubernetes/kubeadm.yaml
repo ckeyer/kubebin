@@ -10,8 +10,8 @@ certificatesDir: /etc/kubernetes/pki
 etcd:
   # endpoints:
   #   - http://127.0.0.1:2379
-  image: quay.io/coreos/etcd:3.2
-# imageRepository: registry.cn-beijing.aliyuncs.com/wa
+  image: registry.cn-beijing.aliyuncs.com/wa/etcd:3.2
+imageRepository: registry.cn-beijing.aliyuncs.com/wa
 kubeletConfiguration:
   clusterDomain: kubedev.ckeyer.com
 kubernetesVersion: v1.9.6
