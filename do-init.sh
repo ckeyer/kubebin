@@ -4,7 +4,7 @@ set -ex;
 
 yum update -y;
 
-yum install -y vim git;
+yum install -y vim git wget;
 
 # install Docker
 yum install -y yum-utils \
@@ -30,7 +30,7 @@ net.bridge.bridge-nf-call-iptables = 1
 EOF
 sysctl --system
 
-mkdir bin;
+mkdir -p bin;
 cd bin;
 wget https://storage.googleapis.com/kubernetes-release/release/v1.9.6/bin/linux/amd64/{kubeadm,kubelet,kubectl}
 chmod 755 *
