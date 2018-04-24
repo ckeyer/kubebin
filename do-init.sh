@@ -43,7 +43,3 @@ chmod 755 *
 cd ../..
 mv bin/ /usr/bin/
 
-#
-git clone https://github.com/ckeyer/kubebin -b use1.9
-cp -a kubebin/etc/ /etc/
-
