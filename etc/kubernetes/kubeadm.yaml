@@ -3,14 +3,19 @@ api:
   bindPort: 6443
 apiServerExtraArgs:
   service-node-port-range: 30000-60000
+  oidc-issuer-url: https://account.ckeyer.com/
+  oidc-client-id: example-app
+  # oidc-ca-file: /etc/kubernetes/ssl/openid-ca.pem
+  oidc-username-claim: email
+  oidc-groups-claim: groups
 authorizationModes:
 - Node
 - RBAC
 certificatesDir: /etc/kubernetes/pki
 etcd:
-  # endpoints:
-  #   - http://127.0.0.1:2379
-  image: quay.io/coreos/etcd:3.2
+  endpoints:
+    - http://x.x.x.x:2379
+  # image: quay.io/coreoss/etcd:3.2
 # imageRepository: registry.cn-beijing.aliyuncs.com/wa
 kubeletConfiguration:
   clusterDomain: kubedev.ckeyer.com

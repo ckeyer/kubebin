@@ -7,8 +7,8 @@
 * **kubelet.service** `https://raw.githubusercontent.com/kubernetes/kubernetes/v1.9.6/build/debs/kubelet.service`
 * **10-kubeadm.conf** `https://raw.githubusercontent.com/kubernetes/kubernetes/v1.9.6/build/debs/10-kubeadm.conf`
 * **cni-plugins** `https://github.com/containernetworking/plugins/releases/download/v0.6.0/cni-plugins-amd64-v0.6.0.tgz`
-* **calico** `https://github.com/projectcalico/cni-plugin/releases/download/v2.0.3/calico`
-* **calico-ipam** `https://github.com/projectcalico/cni-plugin/releases/download/v2.0.3/calico-ipam`
+* **calico** `https://github.com/projectcalico/cni-plugin/releases/download/v2.0.3/{calico,calico-ipam}`
+
 
 ## Install Docker
 
@@ -33,14 +33,11 @@ yum remove docker \
 yum install -y yum-utils \
   device-mapper-persistent-data \
   lvm2
-```
-```
 yum-config-manager \
   --add-repo \
   https://download.docker.com/linux/centos/docker-ce.repo
-```
-```
 yum-config-manager --enable docker-ce-edge
+
 #yum-config-manager --disable docker-ce-edge
 ```
 
@@ -52,15 +49,19 @@ yum install -y docker-ce
 ### Config Docker
 `/etc/docker/daemon.json`
 ```
+mkdir -p /etc/docker
+cat <<EOF > /etc/docker/daemon.json
 {
   "exec-opts": ["native.cgroupdriver=systemd"]
 }
+EOF
+systemctl start docker
 ```
 
 ## Install Kubernetes
 ### Config Kernel
 ```
-cat <<EOF >  /etc/sysctl.d/k8s.conf
+cat <<EOF > /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 EOF
