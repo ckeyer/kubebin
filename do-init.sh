@@ -36,10 +36,12 @@ wget https://storage.googleapis.com/kubernetes-release/release/v1.9.6/bin/linux/
 chmod 755 *
 mkdir cni;
 cd cni;
-curl https://github.com/containernetworking/plugins/releases/download/v0.6.0/cni-plugins-amd64-v0.6.0.tgz |gzip -dc|tar x
-wget https://github.com/projectcalico/cni-plugin/releases/download/v2.0.3/{calico,calico-ipam}
+wget https://github.com/containernetworking/plugins/releases/download/v0.6.0/cni-plugins-amd64-v0.6.0.tgz;
+tar zxf cni-plugins-amd64-v0.6.0.tgz;
+rm -f cni-plugins-amd64-v0.6.0.tgz;
+wget https://github.com/projectcalico/cni-plugin/releases/download/v2.0.3/{calico,calico-ipam};
 chmod 755 *
 
 cd ../..
-mv bin/ /usr/bin/
+mv bin/* /usr/bin/
 
