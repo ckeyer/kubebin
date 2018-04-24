@@ -79,6 +79,7 @@ sysctl --system
 
 ### After
 ```
+mkdir -p $HOME/.kube/
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 ```
 
@@ -92,3 +93,12 @@ kubectl apply -f \
 ```
 
 #### Calico (v3.1)
+[Quickstart](https://docs.projectcalico.org/v3.1/getting-started/kubernetes/)
+
+```
+  https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/rbac.yaml
+  https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/calico.yaml
+```
+配置etcd, 启动
+
+
