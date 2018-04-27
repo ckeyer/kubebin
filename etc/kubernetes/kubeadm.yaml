@@ -14,8 +14,8 @@ authorizationModes:
 certificatesDir: /etc/kubernetes/pki
 etcd:
   endpoints:
-    - http://39.106.206.221:2379
-  # image: quay.io/coreoss/etcd:3.2
+    # - http://39.106.206.221:2379
+  image: registry.cn-beijing.aliyuncs.com/wa/etcd:v3.3
 imageRepository: registry.cn-beijing.aliyuncs.com/wa
 kubeletConfiguration:
   clusterDomain: kubedev.ckeyer.com
