@@ -1,5 +1,5 @@
 api:
-  advertiseAddress: x_x_x_x
+  advertiseAddress: 39.106.206.221
   bindPort: 6443
 apiServerExtraArgs:
   service-node-port-range: 30000-60000
@@ -14,9 +14,9 @@ authorizationModes:
 certificatesDir: /etc/kubernetes/pki
 etcd:
   endpoints:
-    - http://x_x_x_x:2379
+    - http://39.106.206.221:2379
   # image: quay.io/coreoss/etcd:3.2
-# imageRepository: registry.cn-beijing.aliyuncs.com/wa
+imageRepository: registry.cn-beijing.aliyuncs.com/wa
 kubeletConfiguration:
   clusterDomain: kubedev.ckeyer.com
 kubernetesVersion: v1.9.6
