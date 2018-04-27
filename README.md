@@ -77,12 +77,21 @@ sysctl --system
 
 ### Pull Images
 ```
-docker pull registry.cn-beijing.aliyuncs.com/wa/k8s-dns-kube-dns-amd64:1.14.9
-docker tag registry.cn-beijing.aliyuncs.com/wa/k8s-dns-kube-dns-amd64:1.14.9 k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.9
-docker pull registry.cn-beijing.aliyuncs.com/wa/k8s-dns-dnsmasq-nanny-amd64:1.14.9
-docker tag registry.cn-beijing.aliyuncs.com/wa/k8s-dns-dnsmasq-nanny-amd64:1.14.9 k8s.gcr.io/k8s-dns-dnsmasq-nanny-amd64:1.14.9
-docker pull registry.cn-beijing.aliyuncs.com/wa/k8s-dns-sidecar-amd64:1.14.9
-docker tag registry.cn-beijing.aliyuncs.com/wa/k8s-dns-sidecar-amd64:1.14.9 k8s.gcr.io/k8s-dns-sidecar-amd64:1.14.9
+docker pull registry.cn-beijing.aliyuncs.com/wa/k8s-dns-kube-dns-amd64:1.14.8
+docker tag registry.cn-beijing.aliyuncs.com/wa/k8s-dns-kube-dns-amd64:1.14.8 gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.8
+docker pull registry.cn-beijing.aliyuncs.com/wa/k8s-dns-dnsmasq-nanny-amd64:1.14.8
+docker tag registry.cn-beijing.aliyuncs.com/wa/k8s-dns-dnsmasq-nanny-amd64:1.14.8 gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.8
+docker pull registry.cn-beijing.aliyuncs.com/wa/k8s-dns-sidecar-amd64:1.14.8
+docker tag registry.cn-beijing.aliyuncs.com/wa/k8s-dns-sidecar-amd64:1.14.8 gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.8
+
+# docker pull registry.cn-beijing.aliyuncs.com/wa/k8s-dns-kube-dns-amd64:1.14.9
+# docker tag registry.cn-beijing.aliyuncs.com/wa/k8s-dns-kube-dns-amd64:1.14.9 k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.9
+# docker pull registry.cn-beijing.aliyuncs.com/wa/k8s-dns-dnsmasq-nanny-amd64:1.14.9
+# docker tag registry.cn-beijing.aliyuncs.com/wa/k8s-dns-dnsmasq-nanny-amd64:1.14.9 k8s.gcr.io/k8s-dns-dnsmasq-nanny-amd64:1.14.9
+# docker pull registry.cn-beijing.aliyuncs.com/wa/k8s-dns-sidecar-amd64:1.14.9
+# docker tag registry.cn-beijing.aliyuncs.com/wa/k8s-dns-sidecar-amd64:1.14.9 k8s.gcr.io/k8s-dns-sidecar-amd64:1.14.9
+
+
 ```
 
 
