@@ -7,8 +7,8 @@
 * **kubelet.service** `https://raw.githubusercontent.com/kubernetes/kubernetes/v1.9.6/build/debs/kubelet.service`
 * **10-kubeadm.conf** `https://raw.githubusercontent.com/kubernetes/kubernetes/v1.9.6/build/debs/10-kubeadm.conf`
 * **cni-plugins** `https://github.com/containernetworking/plugins/releases/download/v0.6.0/cni-plugins-amd64-v0.6.0.tgz`
-* **calico** `https://github.com/projectcalico/cni-plugin/releases/download/v2.0.3/calico`
-* **calico-ipam** `https://github.com/projectcalico/cni-plugin/releases/download/v2.0.3/calico-ipam`
+* **calico** `https://github.com/projectcalico/cni-plugin/releases/download/v2.0.5/{calico,calico-ipam}`
+* **calico-ipam** `https://github.com/projectcalico/cni-plugin/releases/download/v2.0.5/calico-ipam`
 
 ## At Qiniu
 
@@ -190,8 +190,13 @@ cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 [Quickstart](https://docs.projectcalico.org/v2.6/getting-started/kubernetes/)
 
 ```
-kubectl apply -f \
+kubectl delete -f \
   https://docs.projectcalico.org/v2.6/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
 ```
 
 #### Calico (v3.1)
+```
+kubectl apply -f https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+
+```
