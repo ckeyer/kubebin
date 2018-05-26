@@ -120,10 +120,10 @@ Environment="KUBELET_DNS_ARGS=--cluster-dns=10.96.0.10 --cluster-domain=cluster.
 Environment="KUBELET_AUTHZ_ARGS=--authorization-mode=Webhook --client-ca-file=/etc/kubernetes/pki/ca.crt"
 # Value should match Docker daemon settings.
 # Defaults are "cgroupfs" for Debian/Ubuntu/OpenSUSE and "systemd" for Fedora/CentOS/RHEL
-Environment="KUBELET_CGROUP_ARGS=--cgroup-driver=systemd"
+# Environment="KUBELET_CGROUP_ARGS=--cgroup-driver=systemd"
 Environment="KUBELET_CADVISOR_ARGS=--cadvisor-port=10257"
 Environment="KUBELET_CERTIFICATE_ARGS=--rotate-certificates=true"
-#Environment="KUBELET_NODE_IP=--node-ip 10.1.64.212"
+# Environment="KUBELET_NODE_IP=--node-ip 10.1.64.212"
 ExecStart=
 ExecStart=/usr/bin/kubelet \
  $KUBELET_KUBECONFIG_ARGS \
@@ -170,6 +170,8 @@ networking:
   dnsDomain: kubedev.ckeyer.com
   podSubnet: 10.100.0.0/16
   serviceSubnet: 10.96.0.0/12
+noTaintMaster: true
+
 EOF
 
 ```
