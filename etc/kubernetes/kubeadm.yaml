@@ -1,5 +1,5 @@
 api:
-  advertiseAddress: 127.0.0.1
+  advertiseAddress: x.x.x.x
   bindPort: 6443
 apiServerExtraArgs:
   service-node-port-range: 30000-60000
@@ -14,8 +14,29 @@ etcd:
 # imageRepository: registry.cn-beijing.aliyuncs.com/wa
 kubeletConfiguration:
   clusterDomain: kubedev.ckeyer.com
-# kubernetesVersion: v1.10.0
+kubernetesVersion: v1.9.6
 networking:
   dnsDomain: kubedev.ckeyer.com
   podSubnet: 10.100.0.0/16
   serviceSubnet: 10.96.0.0/12
+kubeProxy:
+  config:
+    bindAddress: 0.0.0.0
+    clusterCIDR: ""
+    enableProfiling: false
+    featureGates: ""
+    iptables:
+      masqueradeAll: false
+      masqueradeBit: 14
+      minSyncPeriod: 0s
+      syncPeriod: 30s
+    ipvs:
+      minSyncPeriod: 1s
+      scheduler: ""
+      syncPeriod: 30s
+    metricsBindAddress: 127.0.0.1:10249
+    mode: "iptables"
+    oomScoreAdj: -999
+    portRange: "30000-60000"
+    resourceContainer: /kube-proxy
+    udpTimeoutMilliseconds: 250ms
